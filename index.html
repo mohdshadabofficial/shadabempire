@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shadab Empire — Building the Future of Digital Platforms">
+<meta name="keywords" content="Shadab Empire, digital platforms, food delivery, ecommerce, social media, startup India">
+<title>Shadab Empire 👑 — Future of Digital Platforms</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#8B6914;
+  --bk:#050505;--bk2:#0D0D0D;--bk3:#141414;--bk4:#1C1C1C;
+  --wh:#F5F0E8;--wh2:rgba(245,240,232,.65);--gg:rgba(201,168,76,.12);
+  --radius:3px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bk);color:var(--wh);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bk2)}::-webkit-scrollbar-thumb{background:var(--gold-d)}
+
+/* OVERLAY */
+.overlay{position:fixed;inset:0;background:rgba(5,5,5,.88);backdrop-filter:blur(12px);z-index:800;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.active{display:flex}
+.modal{background:var(--bk3);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:40px 32px;width:100%;max-width:420px;position:relative;animation:mIn .35s ease}
+@keyframes mIn{from{opacity:0;transform:scale(.95) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--wh2);font-size:22px;cursor:pointer;line-height:1}
+.modal-close:hover{color:var(--gold)}
+.modal h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;margin-bottom:4px}
+.modal h2 em{font-style:italic;color:var(--gold)}
+.modal-sub{font-size:12px;letter-spacing:.08em;color:var(--wh2);margin-bottom:24px}
+.modal-tabs{display:flex;margin-bottom:24px;border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);overflow:hidden}
+.modal-tab{flex:1;padding:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:none;border:none;color:var(--wh2);cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif}
+.modal-tab.active{background:var(--gold);color:var(--bk);font-weight:500}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--wh2);margin-bottom:7px}
+.form-group input{width:100%;padding:11px 14px;background:var(--bk4);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);color:var(--wh);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:border-color .3s}
+.form-group input:focus{border-color:rgba(201,168,76,.5)}
+.form-group textarea{width:100%;padding:11px 14px;background:var(--bk4);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);color:var(--wh);font-family:'Outfit',sans-serif;font-size:14px;outline:none;resize:none;transition:border-color .3s}
+.form-group textarea:focus{border-color:rgba(201,168,76,.5)}
+.form-msg{font-size:12px;margin-top:8px;padding:8px 12px;border-radius:var(--radius);display:none}
+.form-msg.err{display:block;background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);color:#ff6b6b}
+.form-msg.ok{display:block;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold)}
+
+/* BUTTONS */
+.btn-gold{background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l));color:var(--bk);padding:13px 28px;border-radius:var(--radius);font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;width:100%;transition:transform .3s,box-shadow .3s;box-shadow:0 0 20px rgba(201,168,76,.2);font-family:'Outfit',sans-serif}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.4)}
+.btn-outline{background:transparent;color:var(--gold);padding:12px 28px;border-radius:var(--radius);border:1px solid rgba(201,168,76,.35);font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif}
+.btn-outline:hover{background:var(--gg);border-color:var(--gold)}
+.btn-sm{padding:9px 18px;font-size:11px;width:auto}
+.btn-google{width:100%;padding:12px;border-radius:var(--radius);border:1px solid rgba(201,168,76,.2);background:var(--bk4);color:var(--wh);font-family:'Outfit',sans-serif;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .3s;margin-bottom:14px}
+.btn-google:hover{border-color:var(--gold);background:var(--gg)}
+.or-div{display:flex;align-items:center;gap:10px;margin-bottom:14px;color:var(--wh2);font-size:11px}
+.or-div::before,.or-div::after{content:'';flex:1;height:1px;background:rgba(201,168,76,.15)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:700;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(5,5,5,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(201,168,76,.1);transition:all .3s}
+nav.sc{padding:12px 48px}
+.nav-logo img{height:44px;width:auto;display:block}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
+.nav-links a{color:var(--wh2);text-decoration:none;font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-user-btn{display:flex;align-items:center;gap:8px;padding:7px 14px;border-radius:var(--radius);border:1px solid rgba(201,168,76,.25);background:var(--gg);color:var(--gold);font-size:11px;letter-spacing:.08em;cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif}
+.nav-user-btn:hover{border-color:var(--gold)}
+.nav-avatar{width:28px;height:28px;background:linear-gradient(135deg,var(--gold-d),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--bk);overflow:hidden;flex-shrink:0}
+.nav-avatar img{width:100%;height:100%;object-fit:cover}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{width:22px;height:1px;background:var(--gold);display:block;transition:all .3s}
+
+/* VISITOR */
+.vis-badge{position:fixed;bottom:20px;left:20px;z-index:600;background:rgba(13,13,13,.95);border:1px solid rgba(201,168,76,.2);border-radius:100px;padding:7px 14px;display:flex;align-items:center;gap:8px;font-size:11px;color:var(--wh2);backdrop-filter:blur(10px)}
+.vdot{width:6px;height:6px;background:#4CAF50;border-radius:50%;animation:vb 2s infinite}
+@keyframes vb{0%,100%{opacity:1}50%{opacity:.4}}
+.vnum{color:var(--gold);font-weight:500}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:110px 40px 80px}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(201,168,76,.05),transparent 70%),var(--bk)}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 65% 70% at 50% 50%,black,transparent)}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.orb1{width:450px;height:450px;background:radial-gradient(circle,rgba(201,168,76,.07),transparent 70%);top:-80px;right:-80px;animation:f1 14s ease-in-out infinite}
+.orb2{width:280px;height:280px;background:radial-gradient(circle,rgba(201,168,76,.05),transparent 70%);bottom:80px;left:-40px;animation:f2 17s ease-in-out infinite}
+@keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+.hc{position:relative;z-index:1;text-align:center;max-width:820px}
+.h-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,168,76,.3);padding:7px 18px;border-radius:100px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;background:rgba(201,168,76,.05)}
+.bdot{width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.hero-logo{margin-bottom:20px}
+.hero-logo img{height:110px;width:auto;filter:drop-shadow(0 0 20px rgba(201,168,76,.45));animation:lf 3s ease-in-out infinite}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,9vw,105px);font-weight:300;line-height:.92;letter-spacing:-.02em;margin-bottom:22px}
+.gt{background:linear-gradient(135deg,var(--gold-d),var(--gold-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-tag{font-size:clamp(13px,2vw,17px);color:var(--wh2);letter-spacing:.08em;margin-bottom:18px}
+.h-div{width:56px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:0 auto 22px}
+.h-desc{font-size:15px;line-height:1.85;color:var(--wh2);max-width:500px;margin:0 auto 44px}
+.h-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1}
+.scroll-ind span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--wh2)}
+.sc-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sl 2s ease-in-out infinite}
+@keyframes sl{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.5);opacity:.5}}
+
+/* SECTIONS */
+section{padding:100px 48px}
+.sec-lbl{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.sec-lbl::before{content:'';width:26px;height:1px;background:var(--gold)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:300;line-height:1.1;letter-spacing:-.01em;margin-bottom:22px}
+.sec-title em{font-style:italic;background:linear-gradient(135deg,var(--gold-d),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* VISION */
+#vision{background:var(--bk2);position:relative}
+#vision::before,#vision::after{content:'';position:absolute;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+#vision::before{top:0}#vision::after{bottom:0}
+.vis-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:center}
+.vis-q{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,32px);font-weight:300;line-height:1.4;font-style:italic;border-left:2px solid var(--gold);padding-left:26px}
+.vis-txt{font-size:15px;line-height:1.9;color:var(--wh2)}
+.vis-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.sn{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;background:linear-gradient(135deg,var(--gold-d),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.sl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-top:5px}
+
+/* PLATFORMS */
+.plat-wrap{max-width:1160px;margin:0 auto}
+.plat-hdr{text-align:center;margin-bottom:56px}
+.plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.pc{background:var(--bk3);padding:44px 32px;position:relative;overflow:hidden;transition:transform .4s,background .4s;cursor:default}
+.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s}
+.pc:hover{background:var(--bk4);transform:translateY(-4px)}
+.pc:hover::after{transform:scaleX(1)}
+.p-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:24px;background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.15);transition:all .4s}
+.pc:hover .p-icon{background:rgba(201,168,76,.14);border-color:rgba(201,168,76,.4)}
+.p-num{position:absolute;top:24px;right:24px;font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:rgba(201,168,76,.05);line-height:1}
+.p-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;margin-bottom:9px}
+.p-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.p-desc{font-size:13px;line-height:1.8;color:var(--wh2)}
+.p-status{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(201,168,76,.55);border:1px solid rgba(201,168,76,.18);padding:5px 12px;border-radius:100px}
+.sdot{width:4px;height:4px;background:var(--gold);border-radius:50%;opacity:.6}
+
+/* FOUNDER */
+#founder{background:var(--bk2)}
+.f-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.f-vis{display:flex;align-items:center;justify-content:center}
+.f-photo-wrap{position:relative;display:inline-block}
+.f-ring-outer{position:absolute;inset:-30px;border-radius:50%;border:1px solid rgba(201,168,76,.15);animation:rot 22s linear infinite;pointer-events:none}
+.f-ring-outer2{position:absolute;inset:-55px;border-radius:50%;border:1px solid rgba(201,168,76,.07);animation:rot 35s linear infinite reverse;pointer-events:none}
+@keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.f-border{width:280px;height:280px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold),var(--gold-l),var(--gold));padding:3px;box-shadow:0 0 36px rgba(201,168,76,.3),0 0 72px rgba(201,168,76,.12)}
+.f-img{width:100%;height:100%;border-radius:50%;overflow:hidden;background:var(--bk)}
+.f-img img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.sparkle{position:absolute;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);animation:pulse 2s infinite}
+.sp1{width:8px;height:8px;top:10px;right:-6px}
+.sp2{width:5px;height:5px;bottom:20px;left:-8px;animation-delay:.5s}
+.sp3{width:4px;height:4px;top:50%;right:-18px;animation-delay:1s}
+.f-name{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:300;margin-bottom:7px}
+.f-ttl{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:26px}
+.f-txt{font-size:15px;line-height:1.9;color:var(--wh2)}
+
+/* REVIEWS */
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;max-width:1060px;margin:0 auto 48px}
+.rev-card{background:var(--bk3);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:24px;transition:all .3s}
+.rev-card:hover{border-color:rgba(201,168,76,.25);transform:translateY(-3px)}
+.rev-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rev-av{width:38px;height:38px;background:linear-gradient(135deg,var(--gold-d),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--bk);flex-shrink:0;overflow:hidden}
+.rev-av img{width:100%;height:100%;object-fit:cover}
+.rev-name{font-size:14px;font-weight:500}
+.rev-date{font-size:10px;color:var(--wh2)}
+.rev-stars{color:var(--gold);font-size:13px;margin-bottom:10px}
+.rev-txt{font-size:13px;line-height:1.75;color:var(--wh2)}
+.rev-form-box{background:var(--bk3);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);padding:32px;max-width:600px;margin:0 auto}
+.rev-form-box h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;margin-bottom:4px}
+.rev-form-box p{font-size:13px;color:var(--wh2);margin-bottom:24px}
+.star-sel{display:flex;gap:8px;margin-bottom:4px}
+.star-sel button{background:none;border:none;color:rgba(201,168,76,.3);font-size:22px;cursor:pointer;padding:0;transition:color .2s}
+.star-sel button.sel,.star-sel button:hover{color:var(--gold)}
+.no-reviews{text-align:center;padding:36px;color:var(--wh2);font-size:14px;grid-column:1/-1;border:1px dashed rgba(201,168,76,.15);border-radius:var(--radius)}
+
+/* CONTACT */
+.ct-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start}
+.ct-detail{display:flex;align-items:flex-start;gap:13px;margin-bottom:18px}
+.ct-icon{width:38px;height:38px;background:var(--gg);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.ct-dtxt strong{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.ct-dtxt a{color:var(--wh2);text-decoration:none;font-size:14px;transition:color .3s}
+.ct-dtxt a:hover{color:var(--gold)}
+.ct-form{background:var(--bk3);border:1px solid rgba(201,168,76,.12);border-radius:var(--radius);padding:32px}
+.ct-form h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:22px}
+
+/* SOCIAL */
+.soc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:680px;margin:0 auto}
+.soc-btn{display:flex;align-items:center;gap:9px;padding:11px 20px;border-radius:var(--radius);border:1px solid rgba(201,168,76,.18);background:var(--bk3);color:var(--wh2);text-decoration:none;font-size:12px;letter-spacing:.05em;transition:all .3s}
+.soc-btn:hover{border-color:var(--gold);background:var(--gg);color:var(--gold);transform:translateY(-2px)}
+
+/* DASHBOARD */
+#dashboard{display:none;background:var(--bk2)}
+.db-header{display:flex;align-items:center;gap:18px;margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,.12);flex-wrap:wrap}
+.db-av{width:68px;height:68px;background:linear-gradient(135deg,var(--gold-d),var(--gold));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;color:var(--bk);flex-shrink:0;overflow:hidden}
+.db-av img{width:100%;height:100%;object-fit:cover}
+.db-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300}
+.db-email{font-size:13px;color:var(--wh2);margin-top:3px}
+.db-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px}
+.db-card{background:var(--bk3);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:20px;text-align:center}
+.db-card-n{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--gold)}
+.db-card-l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-top:5px}
+.db-section{background:var(--bk3);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:24px}
+.db-section h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;margin-bottom:16px;color:var(--gold)}
+.db-rev-item{border-bottom:1px solid rgba(201,168,76,.08);padding:12px 0;font-size:13px;color:var(--wh2)}
+.db-rev-item:last-child{border-bottom:none}
+.logout-btn{background:none;border:1px solid rgba(255,80,80,.3);color:rgba(255,80,80,.7);padding:8px 18px;border-radius:var(--radius);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif}
+.logout-btn:hover{border-color:rgba(255,80,80,.6);color:#ff6b6b;background:rgba(255,80,80,.07)}
+
+/* ADMIN */
+#adminPanel{display:none;background:var(--bk)}
+.admin-hdr{background:var(--bk2);border-bottom:1px solid rgba(201,168,76,.15);padding:16px 48px;display:flex;align-items:center;justify-content:space-between;margin:-100px -48px 40px;padding-top:110px;flex-wrap:wrap;gap:12px}
+.admin-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--gold);display:flex;align-items:center;gap:10px}
+.admin-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:32px}
+.ast{background:var(--bk3);border:1px solid rgba(201,168,76,.12);border-radius:var(--radius);padding:18px 22px}
+.asn{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--gold)}
+.asl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-top:4px}
+.a-section{background:var(--bk3);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:24px;margin-bottom:16px;overflow-x:auto}
+.a-section h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;margin-bottom:16px;color:var(--gold)}
+.atbl{width:100%;border-collapse:collapse;font-size:13px;min-width:500px}
+.atbl th{text-align:left;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wh2);padding:8px 0;border-bottom:1px solid rgba(201,168,76,.12)}
+.atbl td{padding:10px 0;border-bottom:1px solid rgba(201,168,76,.06);color:var(--wh2)}
+.atbl tr:last-child td{border-bottom:none}
+.badge{padding:3px 9px;border-radius:100px;font-size:10px}
+.badge-gold{background:rgba(201,168,76,.12);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
+.badge-red{background:rgba(255,80,80,.1);color:#ff6b6b;border:1px solid rgba(255,80,80,.2)}
+.del-btn{background:none;border:none;color:rgba(255,80,80,.5);font-size:12px;cursor:pointer;transition:color .2s}
+.del-btn:hover{color:#ff6b6b}
+
+/* FOOTER */
+footer{padding:32px 48px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(201,168,76,.1);flex-wrap:wrap;gap:14px}
+.f-logo img{height:44px;width:auto}
+.f-txt{font-size:11px;color:rgba(245,240,232,.25);letter-spacing:.07em}
+
+/* TOAST */
+.toast{position:fixed;bottom:72px;right:20px;z-index:2000;background:var(--bk3);border:1px solid rgba(201,168,76,.3);border-radius:var(--radius);padding:12px 18px;font-size:13px;color:var(--wh);max-width:280px;animation:tIn .3s ease;box-shadow:0 8px 28px rgba(0,0,0,.4)}
+.toast.out{animation:tOut .3s ease forwards}
+@keyframes tIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
+@keyframes tOut{from{opacity:1}to{opacity:0;transform:translateX(16px)}}
+
+/* MOBILE */
+@media(max-width:900px){
+  .vis-inner,.f-inner,.ct-inner{grid-template-columns:1fr}
+  .plat-grid{grid-template-columns:1fr}
+  .admin-grid{grid-template-columns:1fr 1fr}
+  .db-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  nav.sc{padding:10px 20px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:rgba(5,5,5,.98);align-items:center;justify-content:center;gap:26px;z-index:690}
+  .nav-links.open a{font-size:18px}
+  .hamburger{display:flex}
+  #home,section{padding:80px 20px}
+  footer{padding:24px 20px;flex-direction:column;text-align:center}
+  .admin-hdr{padding:16px 20px;padding-top:90px;margin:-80px -20px 32px}
+  .h-btns{flex-direction:column;align-items:center}
+}
+@media(max-width:480px){
+  .vis-stats,.db-grid,.admin-grid{grid-template-columns:1fr}
+  .modal{padding:28px 20px}
+  .f-border{width:220px;height:220px}
+}
+
+/* INVESTOR SECTION */
+.inv-plans{{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1060px;margin:0 auto 56px}}
+.inv-plan{{background:var(--bk3);padding:40px 28px;position:relative;overflow:hidden;transition:all .4s;cursor:default;text-align:center}}
+.inv-plan::after{{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .4s}}
+.inv-plan:hover{{background:var(--bk4);transform:translateY(-4px)}}
+.inv-plan:hover::after{{transform:scaleX(1)}}
+.inv-plan.featured{{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.05));border:1px solid rgba(201,168,76,.3)}}
+.inv-plan.featured::after{{transform:scaleX(1)}}
+.inv-badge{{display:inline-block;background:linear-gradient(135deg,var(--gold-d),var(--gold));color:var(--bk);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:16px}}
+.inv-icon{{font-size:36px;margin-bottom:16px}}
+.inv-name{{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:8px}}
+.inv-amt{{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;background:linear-gradient(135deg,var(--gold-d),var(--gold-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px}}
+.inv-per{{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-bottom:20px}}
+.inv-features{{list-style:none;margin-bottom:28px;text-align:left}}
+.inv-features li{{font-size:13px;color:var(--wh2);padding:7px 0;border-bottom:1px solid rgba(201,168,76,.07);display:flex;align-items:center;gap:8px}}
+.inv-features li::before{{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0}}
+.inv-form-wrap{{max-width:680px;margin:0 auto}}
+.inv-form-box{{background:var(--bk3);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius);padding:40px 32px}}
+.inv-form-box h3{{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;margin-bottom:6px}}
+.inv-form-box p{{font-size:13px;color:var(--wh2);margin-bottom:28px}}
+.inv-amount-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}}
+.inv-amt-btn{{background:var(--bk4);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);padding:10px 8px;font-size:13px;color:var(--wh2);cursor:pointer;transition:all .3s;font-family:'Outfit',sans-serif;text-align:center}}
+.inv-amt-btn:hover,.inv-amt-btn.sel{{background:var(--gg);border-color:var(--gold);color:var(--gold)}}
+/* INVESTOR DASHBOARD */
+.inv-db-card{{background:var(--bk3);border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);padding:24px;margin-bottom:14px}}
+.inv-db-card-top{{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;flex-wrap:wrap;gap:8px}}
+.inv-status{{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:100px}}
+.inv-status.pending{{background:rgba(255,193,7,.1);border:1px solid rgba(255,193,7,.3);color:#ffc107}}
+.inv-status.approved{{background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.3);color:#4caf50}}
+.inv-status.rejected{{background:rgba(255,80,80,.1);border:1px solid rgba(255,80,80,.3);color:#ff6b6b}}
+@media(max-width:768px){{
+  .inv-plans{{grid-template-columns:1fr}}
+  .inv-amount-grid{{grid-template-columns:repeat(2,1fr)}}
+}}
+
+
+/* INVESTMENT DASHBOARD */
+.inv-dash-wrap{max-width:1060px;margin:0 auto}
+.inv-dash-toggle{display:flex;align-items:center;gap:12px;margin-bottom:32px;justify-content:flex-end}
+.inv-dash-toggle span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--wh2)}
+.toggle-switch{position:relative;width:48px;height:26px;cursor:pointer}
+.toggle-switch input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:var(--bk4);border-radius:100px;border:1px solid rgba(201,168,76,.2);transition:.3s}
+.toggle-slider::before{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:var(--gold);border-radius:50%;transition:.3s}
+.toggle-switch input:checked + .toggle-slider{background:var(--gold-d)}
+.toggle-switch input:checked + .toggle-slider::before{transform:translateX(22px)}
+
+/* LIGHT MODE */
+.inv-light{background:#F8F4EE!important;color:#1a1a1a!important}
+.inv-light .inv-kpi{background:#fff!important;border-color:#e8d9bc!important;box-shadow:0 2px 12px rgba(0,0,0,.06)!important}
+.inv-light .inv-kpi-val{color:#8B6914!important}
+.inv-light .inv-kpi-lbl{color:#666!important}
+.inv-light .inv-ticker-wrap{background:#fff!important;border-color:#e8d9bc!important}
+.inv-light .inv-calc-box{background:#fff!important;border-color:#e8d9bc!important}
+.inv-light .inv-hist-item{background:#fff!important;border-color:#e8d9bc!important}
+.inv-light .inv-hist-item:hover{background:#FEF9F0!important}
+.inv-light .inv-prog-bar-bg{background:#e8d9bc!important}
+.inv-light input[type=range]{accent-color:#8B6914}
+.inv-light h3,.inv-light .inv-calc-result{color:#1a1a1a!important}
+.inv-light .inv-kpi-trend{background:rgba(76,175,80,.1)!important;border-color:rgba(76,175,80,.3)!important}
+
+/* KPI CARDS */
+.inv-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.inv-kpi{background:var(--bk3);border:1px solid rgba(201,168,76,.12);border-radius:var(--radius);padding:20px 18px;transition:all .3s}
+.inv-kpi:hover{border-color:rgba(201,168,76,.3);transform:translateY(-2px)}
+.inv-kpi-icon{font-size:22px;margin-bottom:10px}
+.inv-kpi-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold);line-height:1}
+.inv-kpi-lbl{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-top:6px}
+.inv-kpi-trend{display:inline-flex;align-items:center;gap:4px;font-size:11px;margin-top:8px;padding:3px 9px;border-radius:100px;background:rgba(76,175,80,.1);border:1px solid rgba(76,175,80,.25);color:#4caf50}
+
+/* LIVE TICKER */
+.inv-ticker-wrap{background:var(--bk3);border:1px solid rgba(201,168,76,.12);border-radius:var(--radius);padding:18px 20px;margin-bottom:28px;overflow:hidden}
+.inv-ticker-title{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.live-dot{width:6px;height:6px;background:#4caf50;border-radius:50%;animation:vb 1.5s infinite}
+.ticker-scroll{display:flex;gap:0;animation:tickerMove 25s linear infinite;width:max-content}
+.ticker-scroll:hover{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:10px;padding:8px 24px;border-right:1px solid rgba(201,168,76,.1);white-space:nowrap}
+.ticker-inv-name{font-size:13px;font-weight:500}
+.ticker-inv-amt{font-size:13px;color:var(--gold);font-family:'Cormorant Garamond',serif}
+.ticker-inv-plan{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--wh2)}
+@keyframes tickerMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PROGRESS BAR */
+.inv-progress-section{background:var(--bk3);border:1px solid rgba(201,168,76,.12);border-radius:var(--radius);padding:24px;margin-bottom:28px}
+.inv-progress-section h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:20px}
+.inv-prog-item{margin-bottom:20px}
+.inv-prog-label{display:flex;justify-content:space-between;margin-bottom:8px;font-size:13px}
+.inv-prog-label span:last-child{color:var(--gold)}
+.inv-prog-bar-bg{height:8px;background:rgba(201,168,76,.1);border-radius:100px;overflow:hidden}
+.inv-prog-bar-fill{height:100%;background:linear-gradient(to right,var(--gold-d),var(--gold-l));border-radius:100px;transition:width 1.5s ease}
+
+/* PROFIT CALCULATOR */
+.inv-calc-box{background:var(--bk3);border:1px solid rgba(201,168,76,.12);border-radius:var(--radius);padding:28px;margin-bottom:28px}
+.inv-calc-box h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:20px}
+.inv-calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.inv-calc-field label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-bottom:8px}
+.inv-calc-field input[type=range]{width:100%;accent-color:var(--gold);margin-bottom:4px}
+.inv-calc-field .range-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold)}
+.inv-calc-result{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.05));border:1px solid rgba(201,168,76,.25);border-radius:var(--radius);padding:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center}
+.inv-calc-res-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold)}
+.inv-calc-res-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--wh2);margin-top:4px}
+
+/* HISTORY TIMELINE */
+.inv-hist-list{display:flex;flex-direction:column;gap:10px}
+.inv-hist-item{background:var(--bk3);border:1px solid rgba(201,168,76,.1);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:16px;transition:all .3s}
+.inv-hist-item:hover{border-color:rgba(201,168,76,.3);transform:translateX(4px)}
+.inv-hist-dot{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold-d),var(--gold));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--bk);flex-shrink:0}
+.inv-hist-info{flex:1}
+.inv-hist-name{font-size:14px;font-weight:500}
+.inv-hist-date{font-size:11px;color:var(--wh2);margin-top:2px}
+.inv-hist-plan{font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
+.inv-hist-amt{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);font-weight:300}
+
+@media(max-width:768px){
+  .inv-kpi-grid{grid-template-columns:1fr 1fr}
+  .inv-calc-grid{grid-template-columns:1fr}
+  .inv-calc-result{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .inv-kpi-grid{grid-template-columns:1fr 1fr}
+}
+
+
+.inv-live-panel{max-width:520px;margin:0 auto;background:var(--bk3);border:1px solid rgba(201,168,76,.2);border-radius:var(--radius);overflow:hidden}
+.inv-panel-header{background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.05));border-bottom:1px solid rgba(201,168,76,.15);padding:20px 24px;display:flex;align-items:center;justify-content:space-between}
+.inv-panel-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300}
+.inv-live-badge{display:flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#4caf50}
+.inv-live-badge::before{content:'';width:7px;height:7px;background:#4caf50;border-radius:50%;animation:vb 1.5s infinite}
+.inv-panel-body{padding:24px}
+.inv-type-toggle{display:grid;grid-template-columns:1fr 1fr;background:var(--bk4);border-radius:var(--radius);padding:3px;margin-bottom:20px;gap:3px}
+.inv-type-btn{background:none;border:none;color:var(--wh2);font-family:'Outfit',sans-serif;font-size:13px;padding:10px;border-radius:3px;cursor:pointer;transition:all .3s}
+.inv-type-btn.active{background:var(--gg);color:var(--gold);border:1px solid rgba(201,168,76,.25)}
+.inv-amount-display{background:var(--bk4);border:2px solid rgba(201,168,76,.25);border-radius:var(--radius);padding:18px 20px 14px;margin-bottom:16px;transition:border-color .3s}
+.inv-amount-display:focus-within{border-color:var(--gold)}
+.inv-amount-display label{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wh2);margin-bottom:8px}
+.inv-amount-row{display:flex;align-items:center}
+.inv-rupee-sym{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--gold-d);line-height:1;margin-right:6px}
+.inv-amount-input{background:none;border:none;outline:none;font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--wh);width:100%}
+.inv-equiv{font-size:12px;color:var(--wh2);margin-top:8px;text-align:right}
+.inv-equiv span{color:var(--gold)}
+.inv-quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}
+.inv-quick-btn{background:var(--bk4);border:1px solid rgba(201,168,76,.12);border-radius:3px;padding:10px 4px;font-size:12px;color:var(--wh2);cursor:pointer;transition:all .25s;font-family:'Outfit',sans-serif;text-align:center}
+.inv-quick-btn:hover,.inv-quick-btn.active{background:rgba(201,168,76,.12);border-color:var(--gold);color:var(--gold)}
+.inv-returns-preview{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.03));border:1px solid rgba(201,168,76,.15);border-radius:var(--radius);padding:16px;margin-bottom:18px}
+.inv-ret-title{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--wh2);margin-bottom:12px}
+.inv-ret-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.inv-ret-val{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);line-height:1}
+.inv-ret-lbl{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--wh2);margin-top:3px}
+.inv-rev-info{background:rgba(76,175,80,.06);border:1px solid rgba(76,175,80,.2);border-radius:3px;padding:12px 14px;margin-bottom:16px;font-size:12px;color:var(--wh2);line-height:1.6}
+.inv-rev-info strong{color:#4caf50}
+.inv-proceed-btn{width:100%;background:linear-gradient(135deg,var(--gold-d),var(--gold));border:none;border-radius:var(--radius);padding:16px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bk);cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:8px}
+.inv-proceed-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+.inv-proceed-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.inv-panel-footer{border-top:1px solid rgba(201,168,76,.1);padding:14px 24px;display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(245,240,232,.3);flex-wrap:wrap}
+
+</style>
+</head>
+<body>
+
+<!-- VISITOR BADGE -->
+<div class="vis-badge">
+  <div class="vdot"></div>
+  <span class="vnum" id="visitorNum">...</span>
+  <span>Visitors</span>
+</div>
+
+<!-- AUTH OVERLAY -->
+<div class="overlay" id="authOverlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closeAuth()">✕</button>
+    <h2>Welcome to <em>Empire</em></h2>
+    <p class="modal-sub">Join the Shadab Empire community</p>
+    <div class="modal-tabs">
+      <button class="modal-tab active" id="tabLogin" onclick="switchTab('login')">Login</button>
+      <button class="modal-tab" id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginForm">
+      <button class="btn-google" onclick="doGoogleLogin()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Continue with Google
+      </button>
+      <div class="or-div">or</div>
+      <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="loginPass" placeholder="••••••••"></div>
+      <div class="form-msg" id="loginMsg"></div>
+      <button class="btn-gold" onclick="doLogin()" style="margin-top:4px">Login</button>
+    </div>
+
+    <!-- SIGNUP -->
+    <div id="signupForm" style="display:none">
+      <button class="btn-google" onclick="doGoogleLogin()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        Sign Up with Google
+      </button>
+      <div class="or-div">or</div>
+      <div class="form-group"><label>Full Name</label><input type="text" id="regName" placeholder="Your name"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Password</label><input type="password" id="regPass" placeholder="Min 6 characters"></div>
+      <div class="form-group"><label>Confirm Password</label><input type="password" id="regPass2" placeholder="Repeat password"></div>
+      <div class="form-msg" id="signupMsg"></div>
+      <button class="btn-gold" onclick="doSignup()" style="margin-top:4px">Create Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo"><img src="data:image/webp;base64,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" alt="Shadab Empire"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" onclick="showSection('home')">Home</a></li>
+    <li><a href="#vision" onclick="showSection('home')">About</a></li>
+    <li><a href="#platforms" onclick="showSection('home')">Platforms</a></li>
+    <li><a href="#reviews" onclick="showSection('home')">Reviews</a></li>
+    <li><a href="#contact" onclick="showSection('home')">Contact</a></li>
+    <li><a href="#invest" onclick="showSection('home')">Invest</a></li>
+    <li><a href="#invDashboard" onclick="showSection('home')">Dashboard</a></li>
+  </ul>
+  <div class="nav-right">
+    <div id="navAuth"><button class="btn-outline btn-sm" onclick="openAuth()">Login / Sign Up</button></div>
+    <div id="navUser" style="display:none">
+      <button class="nav-user-btn" onclick="goToProfile()">
+        <div class="nav-avatar" id="navAvatar"><span id="navAvatarText">?</span></div>
+        <span id="navUserName">User</span>
+      </button>
+    </div>
+    <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MAIN SITE -->
+<div id="mainSite" style="display:block">
+
+<section id="home" style="padding-top:110px">
+  <div class="hbg"></div><div class="hgrid"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div class="hc">
+    <div class="hero-logo"><img src="data:image/webp;base64,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" alt="Shadab Empire Logo"></div>
+    <div class="h-badge"><div class="bdot"></div>Technology Startup · Est. 2024</div>
+    <h1 class="h-title"><span class="gt">Shadab</span><br>Empire</h1>
+    <p class="h-tag">Building the Future of Digital Platforms</p>
+    <div class="h-div"></div>
+    <p class="h-desc">Shadab Empire is a technology startup focused on building innovative digital platforms including food delivery, online shopping, and social networking applications.</p>
+    <div class="h-btns">
+      <a href="#platforms" class="btn-gold btn-sm" style="text-decoration:none;display:inline-block;width:auto">Explore Platforms</a>
+      <a href="#contact" class="btn-outline" style="text-decoration:none;display:inline-block">Contact Us</a>
+    </div>
+  </div>
+  <div class="scroll-ind"><span>Scroll</span><div class="sc-line"></div></div>
+</section>
+
+<section id="vision">
+  <div class="vis-inner">
+    <div>
+      <div class="sec-lbl">Our Vision</div>
+      <blockquote class="vis-q">Creating a Powerful<br><em style="color:var(--gold)">Digital Ecosystem</em></blockquote>
+      <div class="vis-stats">
+        <div><div class="sn">3+</div><div class="sl">Platforms</div></div>
+        <div><div class="sn">∞</div><div class="sl">Potential</div></div>
+        <div><div class="sn">1</div><div class="sl">Vision</div></div>
+      </div>
+    </div>
+    <div>
+      <p class="vis-txt">Our vision is to build a global digital ecosystem where people can order food, shop online, and connect socially through innovative technology platforms developed by Shadab Empire.<br><br>We believe technology should be accessible, powerful, and beautiful — creating seamless experiences that empower millions across India and beyond.</p>
+    </div>
+  </div>
+</section>
+
+<section id="platforms" style="padding-left:0;padding-right:0;background:var(--bk)">
+  <div class="plat-wrap" style="padding:0 48px">
+    <div class="plat-hdr">
+      <div class="sec-lbl" style="justify-content:center"><span style="width:26px;height:1px;background:var(--gold);display:block"></span>Future Platforms<span style="width:26px;height:1px;background:var(--gold);display:block"></span></div>
+      <h2 class="sec-title">Our <em>Platforms</em></h2>
+    </div>
+    <div class="plat-grid">
+      <div class="pc"><span class="p-num">01</span><div class="p-icon">🍔</div><div class="p-name">Shadab Food</div><div class="p-tag">Food Delivery</div><p class="p-desc">Fast and reliable food delivery platform connecting customers with restaurants.</p><div class="p-status"><div class="sdot"></div>Coming Soon</div></div>
+      <div class="pc"><span class="p-num">02</span><div class="p-icon">🛒</div><div class="p-name">Shadab Shop</div><div class="p-tag">E-Commerce</div><p class="p-desc">An e-commerce marketplace where people can easily buy products online.</p><div class="p-status"><div class="sdot"></div>Coming Soon</div></div>
+      <div class="pc"><span class="p-num">03</span><div class="p-icon">💫</div><div class="p-name">Shadab Social</div><div class="p-tag">Social Network</div><p class="p-desc">Next-generation social media platform focused on creativity and community.</p><div class="p-status"><div class="sdot"></div>Coming Soon</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="founder" style="background:var(--bk2)">
+  <div class="f-inner">
+    <div class="f-vis">
+      <div class="f-photo-wrap">
+        <div class="f-ring-outer"></div>
+        <div class="f-ring-outer2"></div>
+        <div class="f-border">
+          <div class="f-img"><img src="data:image/webp;base64,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" alt="Mohd Shadab"></div>
+        </div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-lbl">Founder</div>
+      <h2 class="f-name">Mohd Shadab</h2>
+      <div class="f-ttl">Founder & Visionary — Shadab Empire</div>
+      <p class="f-txt">Mohd Shadab is the founder of Shadab Empire with a vision to build innovative digital platforms and create a powerful technology ecosystem for the future.<br><br>Driven by a passion for technology and entrepreneurship, he is building a digital empire from Katihar, Bihar — proving that innovation knows no boundaries.</p>
+    </div>
+  </div>
+</section>
+
+<section id="invest" style="background:var(--bk2)">
+  <div style="max-width:1060px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="sec-lbl" style="justify-content:center"><span style="width:26px;height:1px;background:var(--gold);display:block"></span>Invest<span style="width:26px;height:1px;background:var(--gold);display:block"></span></div>
+      <h2 class="sec-title">Become an <em>Investor</em></h2>
+      <p style="font-size:15px;color:var(--wh2);max-width:500px;margin:0 auto">Be part of Shadab Empire's growth. Invest in the future of digital platforms.</p>
+    </div>
+
+    <!-- Live Investment Panel -->
+    <div style="max-width:520px;margin:0 auto">
+      <div class="inv-live-panel" id="invLivePanel">
+        <div class="inv-panel-header">
+          <div class="inv-panel-title">Invest in <em style="color:var(--gold);font-style:italic">Shadab Empire</em></div>
+          <div class="inv-live-badge">Live</div>
+        </div>
+        <div class="inv-panel-body">
+          <!-- Type Toggle -->
+          <div class="inv-type-toggle">
+            <button class="inv-type-btn active" id="typeRupee" onclick="switchInvType('rupee')">💰 One-Time</button>
+            <button class="inv-type-btn" id="typeSip" onclick="switchInvType('sip')">📅 Monthly SIP</button>
+          </div>
+          <!-- Amount Input -->
+          <div class="inv-amount-display">
+            <label id="invAmtLabel">Investment Amount</label>
+            <div class="inv-amount-row">
+              <span class="inv-rupee-sym">₹</span>
+              <input class="inv-amount-input" type="number" id="liveInvAmt" placeholder="0" min="10" oninput="updateLivePanel()">
+            </div>
+            <div class="inv-equiv" id="invEquiv">Enter amount to see projected returns</div>
+          </div>
+          <!-- Quick Amounts -->
+          <div class="inv-quick-grid">
+            <button class="inv-quick-btn" onclick="setLiveAmt(500)">₹500</button>
+            <button class="inv-quick-btn" onclick="setLiveAmt(5000)">₹5K</button>
+            <button class="inv-quick-btn" onclick="setLiveAmt(10000)">₹10K</button>
+            <button class="inv-quick-btn" onclick="setLiveAmt(50000)">₹50K</button>
+            <button class="inv-quick-btn" onclick="setLiveAmt(100000)">₹1L</button>
+            <button class="inv-quick-btn" onclick="setLiveAmt(500000)">₹5L</button>
+            <button class="inv-quick-btn" onclick="setLiveAmt(1000000)">₹10L</button>
+            <button class="inv-quick-btn" id="customLiveBtn" onclick="setLiveAmt(0)">Custom</button>
+          </div>
+          <!-- Revenue Sharing Info -->
+          <div class="inv-rev-info">🤝 <strong>Revenue Sharing:</strong> Get <strong>20% annual returns</strong> from Shadab Empire profits, proportional to your investment.</div>
+          <!-- Returns Preview -->
+          <div class="inv-returns-preview">
+            <div class="inv-ret-title">📈 Projected Returns (20% p.a.)</div>
+            <div class="inv-ret-grid">
+              <div class="inv-ret-item"><div class="inv-ret-val" id="ret1yr">₹0</div><div class="inv-ret-lbl">1 Year</div></div>
+              <div class="inv-ret-item"><div class="inv-ret-val" id="ret3yr">₹0</div><div class="inv-ret-lbl">3 Years</div></div>
+              <div class="inv-ret-item"><div class="inv-ret-val" id="ret5yr">₹0</div><div class="inv-ret-lbl">5 Years</div></div>
+            </div>
+          </div>
+          <!-- Form -->
+          <div id="livePanelForm" style="display:none">
+            <div class="form-group" style="margin-bottom:12px"><label style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--wh2)">Full Name</label><input type="text" id="liveName" placeholder="Your full name"></div>
+            <div class="form-group" style="margin-bottom:16px"><label style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--wh2)">Phone Number</label><input type="tel" id="livePhone" placeholder="+91 XXXXX XXXXX"></div>
+            <div class="form-msg" id="liveInvMsg"></div>
+            <button class="inv-proceed-btn" id="liveProceedBtn" onclick="submitLiveInvestment()" disabled><span>Proceed to Invest</span><span>→</span></button>
+          </div>
+          <div id="livePanelLogin" style="text-align:center;padding:8px 0">
+            <p style="font-size:13px;color:var(--wh2);margin-bottom:12px">Login to submit investment application</p>
+            <button class="inv-proceed-btn" onclick="openAuth()">Login / Sign Up 👑</button>
+          </div>
+        </div>
+        <div class="inv-panel-footer">🔒 Secure & Private &nbsp;|&nbsp; ✅ Reviewed in 48 hours &nbsp;|&nbsp; 📧 Email confirmation sent</div>
+      </div>
+    </div>
+
+<section id="invDashboard" style="background:var(--bk);padding:100px 48px">
+  <div class="inv-dash-wrap" id="invDashInner">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="sec-lbl" style="justify-content:center"><span style="width:26px;height:1px;background:var(--gold);display:block"></span>Live<span style="width:26px;height:1px;background:var(--gold);display:block"></span></div>
+      <h2 class="sec-title">Investment <em>Dashboard</em></h2>
+      <p style="font-size:14px;color:var(--wh2);margin-bottom:0">Real-time investment tracker for Shadab Empire</p>
+    </div>
+
+    <!-- Toggle -->
+    <div class="inv-dash-toggle">
+      <span>🌙 Dark</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="dashThemeToggle" onchange="toggleDashTheme()">
+        <span class="toggle-slider"></span>
+      </label>
+      <span>☀️ Light</span>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="inv-kpi-grid">
+      <div class="inv-kpi">
+        <div class="inv-kpi-icon">💰</div>
+        <div class="inv-kpi-val" id="kpiTotal">₹0</div>
+        <div class="inv-kpi-lbl">Total Invested</div>
+        <div class="inv-kpi-trend">↑ Growing</div>
+      </div>
+      <div class="inv-kpi">
+        <div class="inv-kpi-icon">👥</div>
+        <div class="inv-kpi-val" id="kpiInvestors">0</div>
+        <div class="inv-kpi-lbl">Total Investors</div>
+        <div class="inv-kpi-trend">↑ Active</div>
+      </div>
+      <div class="inv-kpi">
+        <div class="inv-kpi-icon">📈</div>
+        <div class="inv-kpi-val" id="kpiAvg">₹0</div>
+        <div class="inv-kpi-lbl">Average Investment</div>
+        <div class="inv-kpi-trend">↑ Rising</div>
+      </div>
+      <div class="inv-kpi">
+        <div class="inv-kpi-icon">👑</div>
+        <div class="inv-kpi-val" id="kpiTop">₹0</div>
+        <div class="inv-kpi-lbl">Largest Investment</div>
+        <div class="inv-kpi-trend">↑ Empire</div>
+      </div>
+    </div>
+
+    <!-- Live Ticker -->
+    <div class="inv-ticker-wrap">
+      <div class="inv-ticker-title"><div class="live-dot"></div> Live Investor Feed</div>
+      <div style="overflow:hidden">
+        <div class="ticker-scroll" id="invTicker">
+          <div class="ticker-item"><div><div class="ticker-inv-name">Loading...</div><div class="ticker-inv-plan">Please wait</div></div><div class="ticker-inv-amt">—</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monthly Progress -->
+    <div class="inv-progress-section">
+      <h3>📅 Monthly <em style="color:var(--gold);font-style:italic">Progress</em></h3>
+      <div class="inv-prog-item">
+        <div class="inv-prog-label"><span>This Month's Investments</span><span id="progMonthVal">₹0 / ₹1,00,000</span></div>
+        <div class="inv-prog-bar-bg"><div class="inv-prog-bar-fill" id="progMonthBar" style="width:0%"></div></div>
+      </div>
+      <div class="inv-prog-item">
+        <div class="inv-prog-label"><span>Total Goal Progress</span><span id="progTotalVal">₹0 / ₹10,00,000</span></div>
+        <div class="inv-prog-bar-bg"><div class="inv-prog-bar-fill" id="progTotalBar" style="width:0%"></div></div>
+      </div>
+      <div class="inv-prog-item">
+        <div class="inv-prog-label"><span>Empire Investors</span><span id="progEmpireVal">0 / 10</span></div>
+        <div class="inv-prog-bar-bg"><div class="inv-prog-bar-fill" id="progEmpireBar" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <!-- Investment History -->
+    <div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:20px">📊 Investment <em style="color:var(--gold);font-style:italic">Timeline</em></h3>
+      <div class="inv-hist-list" id="invHistList">
+        <div style="text-align:center;padding:32px;color:var(--wh2);font-size:14px;border:1px dashed rgba(201,168,76,.15);border-radius:var(--radius)">Loading investment data...</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="invCalculator" style="background:var(--bk)">
+<div style="max-width:760px;margin:0 auto;padding:80px 20px">
+<div style="text-align:center;margin-bottom:40px"><div class="sec-lbl" style="justify-content:center"><span style="width:26px;height:1px;background:var(--gold);display:block"></span>Calculator<span style="width:26px;height:1px;background:var(--gold);display:block"></span></div><h2 class="sec-title">Returns <em>Calculator</em></h2></div>
+<!-- Profit Calculator -->
+    <div class="inv-calc-box">
+      <h3>🧮 Returns <em style="color:var(--gold);font-style:italic">Calculator</em></h3>
+      <div class="inv-calc-grid">
+        <div class="inv-calc-field">
+          <label>Investment Amount</label>
+          <input type="range" id="calcAmt" min="1000" max="1000000" step="1000" value="50000" oninput="updateCalc()">
+          <div class="range-val" id="calcAmtVal">₹50,000</div>
+        </div>
+        <div class="inv-calc-field">
+          <label>Time Period (Years)</label>
+          <input type="range" id="calcYears" min="1" max="10" step="1" value="3" oninput="updateCalc()">
+          <div class="range-val" id="calcYearsVal">3 Years</div>
+        </div>
+        <div class="inv-calc-field">
+          <label>Expected Return (%)</label>
+          <input type="range" id="calcReturn" min="5" max="50" step="1" value="20" oninput="updateCalc()">
+          <div class="range-val" id="calcReturnVal">20%</div>
+        </div>
+        <div class="inv-calc-field" style="display:flex;align-items:center;justify-content:center">
+          <div style="text-align:center;padding:16px;background:var(--gg);border-radius:var(--radius);border:1px solid rgba(201,168,76,.2);width:100%">
+            <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2);margin-bottom:8px">Estimated Profit</div>
+            <div class="range-val" id="calcProfit" style="font-size:36px">₹0</div>
+          </div>
+        </div>
+      </div>
+      <div class="inv-calc-result">
+        <div><div class="inv-calc-res-val" id="calcInvested">₹50,000</div><div class="inv-calc-res-lbl">Amount Invested</div></div>
+        <div><div class="inv-calc-res-val" id="calcReturns">₹0</div><div class="inv-calc-res-lbl">Total Returns</div></div>
+        <div><div class="inv-calc-res-val" id="calcFinal">₹0</div><div class="inv-calc-res-lbl">Final Value</div></div>
+      </div>
+    </div>
+
+    
+</div>
+</section><section id="social" style="background:var(--bk);text-align:center">
+  <div style="max-width:720px;margin:0 auto">
+    <div class="sec-lbl" style="justify-content:center"><span style="width:26px;height:1px;background:var(--gold);display:block"></span>Follow Us<span style="width:26px;height:1px;background:var(--gold);display:block"></span></div>
+    <h2 class="sec-title">Connect with <em>Shadab Empire</em></h2>
+    <p style="font-size:14px;color:var(--wh2);margin-bottom:44px">Stay updated across all platforms</p>
+    <div class="soc-grid">
+      <a href="https://youtube.com/@shadabempire" target="_blank" class="soc-btn">▶ YouTube</a>
+      <a href="https://www.instagram.com/shadabempireofficial" target="_blank" class="soc-btn">◈ Instagram</a>
+      <a href="https://www.facebook.com/share/1Q1R2sBnfM/" target="_blank" class="soc-btn">◉ Facebook</a>
+      <a href="https://www.threads.com/@shadabempireofficial" target="_blank" class="soc-btn">⊗ Threads</a>
+      <a href="https://x.com/Shadab_Empire" target="_blank" class="soc-btn">✕ X (Twitter)</a>
+      <a href="https://whatsapp.com/channel/0029Vb74zEN2P59u7sx0pV3d" target="_blank" class="soc-btn">◎ WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" style="background:var(--bk2)">
+  <div class="ct-inner">
+    <div>
+      <div class="sec-lbl">Get In Touch</div>
+      <h2 class="sec-title">Contact <em>Us</em></h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--wh2);margin-bottom:32px">We'd love to hear from you.</p>
+      <div class="ct-detail"><div class="ct-icon">✉</div><div class="ct-dtxt"><strong>Email</strong><a href="/cdn-cgi/l/email-protection#61020e0f150002154f120900050003040c1108130421060c00080d4f020e0c"><span class="__cf_email__" data-cfemail="afccc0c1dbceccdb81dcc7cecbcecdcac2dfc6ddcaefc8c2cec6c381ccc0c2">[email&#160;protected]</span></a></div></div>
+      <div class="ct-detail"><div class="ct-icon">📍</div><div class="ct-dtxt"><strong>Location</strong><span style="color:var(--wh2);font-size:14px">Katihar, Bihar, India</span></div></div>
+      <div class="ct-detail"><div class="ct-icon">🌐</div><div class="ct-dtxt"><strong>Website</strong><span style="color:var(--gold);font-size:14px">www.shadabempire.com</span></div></div>
+    </div>
+    <div class="ct-form">
+      <h3>Send a <em style="color:var(--gold);font-style:italic">Message</em></h3>
+      <div class="form-group"><label>Name</label><input type="text" id="ctName" placeholder="Full name"></div>
+      <div class="form-group"><label>Email</label><input type="email" id="ctEmail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Subject</label><input type="text" id="ctSubject" placeholder="How can we help?"></div>
+      <div class="form-group"><label>Message</label><textarea id="ctMsg" rows="5" placeholder="Your message..."></textarea></div>
+      <div class="form-msg" id="ctFormMsg"></div>
+      <button class="btn-gold" onclick="submitContact()">Send Message</button>
+    </div>
+  </div>
+</section>
+
+
+<section id="reviews" style="background:var(--bk)">
+  <div style="max-width:1060px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="sec-lbl" style="justify-content:center"><span style="width:26px;height:1px;background:var(--gold);display:block"></span>Community<span style="width:26px;height:1px;background:var(--gold);display:block"></span></div>
+      <h2 class="sec-title">User <em>Reviews</em></h2>
+    </div>
+    <div class="rev-grid" id="reviewsGrid"><div class="no-reviews">No reviews yet. Be the first! 🌟</div></div>
+    <div class="rev-form-box">
+      <h3>Share Your <em style="color:var(--gold);font-style:italic">Review</em></h3>
+      <p id="revFormSubtitle">Login required to submit a review</p>
+      <div id="revFormInner" style="display:none">
+        <div class="form-group"><label>Rating</label><div class="star-sel" id="starSel"><button onclick="setStar(1)">★</button><button onclick="setStar(2)">★</button><button onclick="setStar(3)">★</button><button onclick="setStar(4)">★</button><button onclick="setStar(5)">★</button></div></div>
+        <div class="form-group"><label>Review</label><textarea id="revTxt" rows="4" placeholder="Share your experience..."></textarea></div>
+        <div class="form-msg" id="revMsg"></div>
+        <button class="btn-gold" onclick="submitReview()">Submit Review</button>
+      </div>
+      <div id="revLoginPrompt"><button class="btn-outline" style="margin-top:10px" onclick="openAuth()">Login to Write a Review</button></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo"><img src="data:image/webp;base64,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" alt="Shadab Empire"></div>
+  <div class="f-txt">Katihar, Bihar, India · www.shadabempire.com</div>
+  <div class="f-txt">© 2024 Shadab Empire. All Rights Reserved.</div>
+</footer>
+</div><!-- /mainSite -->
+
+<!-- DASHBOARD -->
+<section id="dashboard" style="display:none">
+  <div style="max-width:960px;margin:0 auto">
+    <div class="db-header">
+      <div class="db-av" id="dbAvatar"><span id="dbAvatarText">?</span></div>
+      <div><div class="db-name" id="dbName">—</div><div class="db-email" id="dbEmail">—</div></div>
+      <button class="logout-btn" style="margin-left:auto" onclick="doLogout()">Logout</button>
+    </div>
+    <div class="db-grid">
+      <div class="db-card"><div class="db-card-n" id="dbVisCount">—</div><div class="db-card-l">Visitors</div></div>
+      <div class="db-card"><div class="db-card-n" id="dbRevCount">—</div><div class="db-card-l">Reviews</div></div>
+      <div class="db-card"><div class="db-card-n" id="dbMsgCount">—</div><div class="db-card-l">My Messages</div></div>
+    </div>
+    <div class="db-section" style="margin-bottom:14px"><h3>💰 My Investments</h3><div id="myInvestments"><p style="color:var(--wh2);font-size:14px">Loading...</p></div></div>
+    <div class="db-section"><h3>My Reviews</h3><div id="myReviews"><p style="color:var(--wh2);font-size:14px">No reviews yet.</p></div></div>
+    <br><button class="btn-outline" onclick="showSection('home')">← Back to Website</button>
+  </div>
+</section>
+
+<!-- ADMIN PANEL -->
+<section id="adminPanel" style="display:none">
+  <div class="admin-hdr">
+    <div class="admin-title"><img src="data:image/webp;base64,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" style="height:32px;width:auto"> 👑 Admin Panel</div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <button class="btn-gold btn-sm" onclick="exportData('users')">⬇ Export Users</button>
+      <button class="btn-gold btn-sm" onclick="exportData('reviews')">⬇ Export Reviews</button>
+      <button class="btn-gold btn-sm" onclick="exportData('messages')">⬇ Export Messages</button>
+      <button class="btn-outline btn-sm" onclick="showSection('home')">← View Site</button>
+      <button class="logout-btn" style="margin-top:0" onclick="doLogout()">Logout</button>
+    </div>
+  </div>
+  <div class="admin-grid">
+    <div class="ast"><div class="asn" id="aVisitors">—</div><div class="asl">Visitors</div></div>
+    <div class="ast"><div class="asn" id="aUsers">—</div><div class="asl">Users</div></div>
+    <div class="ast"><div class="asn" id="aReviews">—</div><div class="asl">Reviews</div></div>
+    <div class="ast"><div class="asn" id="aMessages">—</div><div class="asl">Messages</div></div>
+  </div>
+  <div class="a-section">
+    <h3>👥 All Users</h3>
+    <table class="atbl"><thead><tr><th>Name</th><th>Email</th><th>Joined</th><th>Role</th><th>Action</th></tr></thead>
+    <tbody id="adminUsersTable"><tr><td colspan="5" style="color:var(--wh2);text-align:center;padding:20px">Loading...</td></tr></tbody></table>
+  </div>
+  <div class="a-section">
+    <h3>⭐ All Reviews</h3>
+    <table class="atbl"><thead><tr><th>User</th><th>Email</th><th>Stars</th><th>Review</th><th>Date</th><th>Action</th></tr></thead>
+    <tbody id="adminRevsTable"><tr><td colspan="6" style="color:var(--wh2);text-align:center;padding:20px">Loading...</td></tr></tbody></table>
+  </div>
+  <div class="a-section">
+    <h3>💰 Investment Applications</h3>
+    <div style="margin-bottom:12px"><button class="btn-gold btn-sm" onclick="exportData('investments')">⬇ Export Investments</button></div>
+    <table class="atbl"><thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Amount</th><th>Plan</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+    <tbody id="adminInvTable"><tr><td colspan="8" style="color:var(--wh2);text-align:center;padding:20px">Loading...</td></tr></tbody></table>
+  </div>
+  <div class="a-section">
+    <h3>✉ All Messages</h3>
+    <table class="atbl"><thead><tr><th>Name</th><th>Email</th><th>Subject</th><th>Message</th><th>Date</th></tr></thead>
+    <tbody id="adminMsgsTable"><tr><td colspan="5" style="color:var(--wh2);text-align:center;padding:20px">Loading...</td></tr></tbody></table>
+  </div>
+</section>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ===== HELPERS =====
+function showMsg(id,msg,type){const el=document.getElementById(id);el.textContent=msg;el.className='form-msg '+(type||'err');el.style.display='block'}
+function toast(msg,dur=3200){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),350)},dur)}
+
+// ===== PAGE SECTIONS =====
+function showSection(page){
+  document.getElementById('mainSite').style.display='none'
+  document.getElementById('dashboard').style.display='none'
+  document.getElementById('adminPanel').style.display='none'
+  document.getElementById('navLinks').classList.remove('open')
+  if(page==='home'){document.getElementById('mainSite').style.display='block';window.scrollTo(0,0)}
+  else if(page==='dashboard'){document.getElementById('dashboard').style.display='block';if(window.loadDashboard)window.loadDashboard();window.scrollTo(0,0)}
+  else if(page==='admin'){document.getElementById('adminPanel').style.display='block';setTimeout(()=>{if(window.loadAdmin)window.loadAdmin();else if(typeof loadAdmin==='function')loadAdmin()},500);window.scrollTo(0,0)}
+}
+showSection('home')
+// Safety fallback - ensure mainSite shows
+setTimeout(function(){
+  var ms = document.getElementById('mainSite')
+  if(ms && ms.style.display === 'none') ms.style.display = 'block'
+},1000)
+
+// ===== AUTH MODAL =====
+function openAuth(){document.getElementById('authOverlay').classList.add('active')}
+function closeAuth(){document.getElementById('authOverlay').classList.remove('active')}
+document.getElementById('authOverlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeAuth()})
+function switchTab(t){
+  document.getElementById('loginForm').style.display=t==='login'?'block':'none'
+  document.getElementById('signupForm').style.display=t==='signup'?'block':'none'
+  document.getElementById('tabLogin').classList.toggle('active',t==='login')
+  document.getElementById('tabSignup').classList.toggle('active',t==='signup')
+}
+
+// ===== NAV =====
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60))
+const hbg=document.getElementById('hbg'),nl=document.getElementById('navLinks')
+hbg.addEventListener('click',()=>nl.classList.toggle('open'))
+
+// ===== STARS =====
+window.selectedStars=5
+function setStar(n){window.selectedStars=n;document.querySelectorAll('#starSel button').forEach((b,i)=>b.classList.toggle('sel',i<n))}
+setStar(5)
+
+// ===== UPDATE NAV USER =====
+function updateNavUser(){
+  const a=document.getElementById('navAuth'),u=document.getElementById('navUser')
+  const cu=window.currentUser
+  if(cu){
+    a.style.display='none';u.style.display='flex'
+    document.getElementById('navUserName').textContent=cu.name.split(' ')[0]
+    const avatarText=document.getElementById('navAvatarText')
+    const navAv=document.getElementById('navAvatar')
+    if(cu.photo){navAv.innerHTML=`<img src="${cu.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`}
+    else{navAv.innerHTML=`<span id="navAvatarText">${cu.name[0].toUpperCase()}</span>`}
+  }else{a.style.display='flex';u.style.display='none'}
+  updateReviewForm()
+}
+
+function updateReviewForm(){
+  const inner=document.getElementById('revFormInner'),prompt=document.getElementById('revLoginPrompt'),sub=document.getElementById('revFormSubtitle')
+  if(window.currentUser){inner.style.display='block';prompt.style.display='none';if(sub)sub.textContent='Share your experience'}
+  else{inner.style.display='none';prompt.style.display='block';if(sub)sub.textContent='Login required to submit a review'}
+  // Investment form
+  const invInner=document.getElementById('invFormInner')
+  const invPrompt=document.getElementById('invLoginPrompt')
+  const invSub=document.getElementById('invFormSubtitle')
+  if(invInner && invPrompt) {
+    if(window.currentUser){
+      invInner.style.display='block';invPrompt.style.display='none'
+      if(invSub)invSub.textContent='Logged in as '+window.currentUser.email
+      // Auto-fill email
+      const emailField=document.getElementById('invEmail')
+      if(emailField)emailField.value=window.currentUser.email
+      const nameField=document.getElementById('invName')
+      if(nameField && !nameField.value)nameField.value=window.currentUser.name
+    } else {
+      invInner.style.display='none';invPrompt.style.display='block'
+      if(invSub)invSub.textContent='Login required to submit investment application'
+    }
+  }
+}
+
+function goToProfile(){
+  if(!window.currentUser)return
+  if(window.currentUser.role==='admin')showSection('admin')
+  else showSection('dashboard')
+}
+
+// ===== DASHBOARD =====
+function loadDashboard(){
+  if(!window.currentUser)return
+  const cu=window.currentUser
+  const dbAv=document.getElementById('dbAvatar')
+  if(cu.photo)dbAv.innerHTML=`<img src="${cu.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`
+  else dbAv.innerHTML=`<span>${cu.name[0].toUpperCase()}</span>`
+  document.getElementById('dbName').textContent=cu.name
+  document.getElementById('dbEmail').textContent=cu.email
+}
+
+// ===== REVIEWS RENDER =====
+function renderReviewsFromData(reviews){
+  const grid=document.getElementById('reviewsGrid')
+  if(!reviews||!reviews.length){grid.innerHTML='<div class="no-reviews">No reviews yet. Be the first! 🌟</div>';return}
+  grid.innerHTML=reviews.slice(0,9).map(r=>`
+    <div class="rev-card">
+      <div class="rev-top">
+        <div class="rev-av">${r.photo?`<img src="${r.photo}">`:r.user[0].toUpperCase()}</div>
+        <div><div class="rev-name">${r.user}</div><div class="rev-date">${r.date}</div></div>
+      </div>
+      <div class="rev-stars">${'★'.repeat(r.stars)+'☆'.repeat(5-r.stars)}</div>
+      <div class="rev-txt">${r.text}</div>
+    </div>`).join('')
+}
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const href=a.getAttribute('href');if(href==='#')return
+    e.preventDefault();const t=document.querySelector(href);if(t)t.scrollIntoView({behavior:'smooth'})
+  })
+})
+</script>
+
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function(){emailjs.init({publicKey:"m8czLUu_qVRFUGmmA"})})();
+
+const EJ_SVC = "service_pwgv866";
+const EJ_CONTACT = "template_k197ujg";
+const EJ_NOTIFY = "template_rd07anu";
+
+function sendEmail(templateId, params) {
+  return emailjs.send(EJ_SVC, templateId, params).catch(e=>console.log('Email error:',e));
+}
+</script>
+<!-- FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, setDoc, getDoc, updateDoc, increment, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCzFz_GaDgvlG566z4u4twCwsM21fits1g",
+  authDomain: "shadab-empire.firebaseapp.com",
+  projectId: "shadab-empire",
+  storageBucket: "shadab-empire.firebasestorage.app",
+  messagingSenderId: "155512376659",
+  appId: "1:155512376659:web:3dda7bfbcf191faad65a6",
+  measurementId: "G-9XKRH4G2GW"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const gProvider = new GoogleAuthProvider();
+
+// VISITOR COUNTER
+async function updateVisitors(){
+  try{
+    const ref=doc(db,'stats','visitors');
+    await setDoc(ref,{count:increment(1)},{merge:true});
+    const snap=await getDoc(ref);
+    document.getElementById('visitorNum').textContent=(snap.data()?.count||0).toLocaleString()
+  }catch(e){document.getElementById('visitorNum').textContent='—'}
+}
+updateVisitors()
+
+// AUTH STATE
+onAuthStateChanged(auth,async(user)=>{
+  if(user){
+    try{
+      const snap=await getDoc(doc(db,'users',user.uid));
+      const data=snap.exists()?snap.data():{name:user.displayName||user.email.split('@')[0],email:user.email,role:'user'}
+      window.currentUser={...data,uid:user.uid,photo:user.photoURL||data.photo||''}
+    }catch(e){window.currentUser={name:user.displayName||user.email.split('@')[0],email:user.email,role:'user',uid:user.uid,photo:user.photoURL||''}}
+    updateNavUser();loadReviews()
+    if(window.pendingRedirect){
+      const r=window.pendingRedirect;window.pendingRedirect=null
+      if(r==='admin')showSection('admin');else showSection('dashboard')
+    }
+  }else{window.currentUser=null;updateNavUser()}
+})
+
+// GOOGLE LOGIN
+window.doGoogleLogin=async function(){
+  try{
+    const result=await signInWithPopup(auth,gProvider);
+    const user=result.user;
+    const ref=doc(db,'users',user.uid);
+    const snap=await getDoc(ref);
+    if(!snap.exists()){
+      await setDoc(ref,{name:user.displayName||'User',email:user.email,photo:user.photoURL||'',role:'user',joined:new Date().toLocaleDateString(),uid:user.uid})
+    }
+    closeAuth();window.pendingRedirect='dashboard';toast('Welcome, '+(user.displayName||'User')+'! 👑')
+    // Email notification
+    if(!snap.exists()) {
+      emailjs.send("service_pwgv866","template_rd07anu",{
+        user_name:user.displayName||'User', user_email:user.email, method:'Google Login',
+        date:new Date().toLocaleDateString(), stars:'', review_text:'New Google signup!'
+      }).catch(e=>console.log('Email err:',e))
+    }
+  }catch(e){if(e.code!=='auth/popup-closed-by-user')toast('Error: '+e.message)}
+}
+
+// EMAIL LOGIN
+window.doLogin=async function(){
+  const email=document.getElementById('loginEmail').value.trim()
+  const pass=document.getElementById('loginPass').value
+  if(!email||!pass)return showMsg('loginMsg','Please fill all fields')
+  try{
+    showMsg('loginMsg','Logging in...','ok')
+    await signInWithEmailAndPassword(auth,email,pass)
+    closeAuth();toast('Welcome back! 👑')
+    window.pendingRedirect='dashboard'
+  }catch(e){
+    showMsg('loginMsg',e.code==='auth/invalid-credential'?'Invalid email or password':'Login failed. Try again.')
+  }
+}
+
+// SIGNUP
+window.doSignup=async function(){
+  const name=document.getElementById('regName').value.trim()
+  const email=document.getElementById('regEmail').value.trim()
+  const pass=document.getElementById('regPass').value
+  const pass2=document.getElementById('regPass2').value
+  if(!name||!email||!pass||!pass2)return showMsg('signupMsg','Please fill all fields')
+  if(pass.length<6)return showMsg('signupMsg','Password min 6 characters')
+  if(pass!==pass2)return showMsg('signupMsg','Passwords do not match')
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return showMsg('signupMsg','Invalid email')
+  try{
+    showMsg('signupMsg','Creating account...','ok')
+    const cred=await createUserWithEmailAndPassword(auth,email,pass)
+    await setDoc(doc(db,'users',cred.user.uid),{name,email,photo:'',role:'user',joined:new Date().toLocaleDateString(),uid:cred.user.uid})
+    closeAuth();toast('Welcome to Shadab Empire! 🎉')
+    // Email notification
+    emailjs.send("service_pwgv866","template_rd07anu",{
+      user_name:name, user_email:email, method:'Email/Password',
+      date:new Date().toLocaleDateString(), stars:'', review_text:'New signup!'
+    }).catch(e=>console.log('Email err:',e))
+    window.pendingRedirect='dashboard'
+  }catch(e){
+    showMsg('signupMsg',e.code==='auth/email-already-in-use'?'Email already registered':'Signup failed. Try again.')
+  }
+}
+
+// LOGOUT
+window.doLogout=async function(){
+  await signOut(auth);window.currentUser=null;updateNavUser();showSection('home');toast('Logged out')
+}
+
+// REVIEWS
+async function loadReviews(){
+  try{
+    const q=query(collection(db,'reviews'),orderBy('createdAt','desc'))
+    const snap=await getDocs(q);const reviews=[]
+    snap.forEach(d=>reviews.push({id:d.id,...d.data()}))
+    renderReviewsFromData(reviews)
+    document.getElementById('dbRevCount').textContent=reviews.length
+    document.getElementById('aReviews').textContent=reviews.length
+    window._reviews=reviews
+  }catch(e){console.log('Reviews error:',e)}
+}
+loadReviews()
+
+window.submitReview=async function(){
+  if(!window.currentUser)return openAuth()
+  const txt=document.getElementById('revTxt').value.trim()
+  if(!txt)return showMsg('revMsg','Please write your review')
+  if(txt.length<10)return showMsg('revMsg','Review too short (min 10 chars)')
+  try{
+    await addDoc(collection(db,'reviews'),{user:window.currentUser.name,email:window.currentUser.email,uid:window.currentUser.uid,photo:window.currentUser.photo||'',stars:window.selectedStars||5,text:txt,date:new Date().toLocaleDateString(),createdAt:serverTimestamp()})
+    document.getElementById('revTxt').value='';setStar(5)
+    showMsg('revMsg','Review submitted! Thank you 🌟','ok')
+    setTimeout(()=>document.getElementById('revMsg').style.display='none',3000)
+    loadReviews();toast('Review submitted! 🌟')
+    // Email notification
+    emailjs.send("service_pwgv866","template_rd07anu",{
+      user_name:window.currentUser.name, user_email:window.currentUser.email,
+      method:'Review', date:new Date().toLocaleDateString(),
+      stars:window.selectedStars||5, review_text:txt
+    }).catch(e=>console.log('Email err:',e))
+  }catch(e){showMsg('revMsg','Error: '+e.message)}
+}
+
+// CONTACT
+window.submitContact=async function(){
+  const name=document.getElementById('ctName').value.trim()
+  const email=document.getElementById('ctEmail').value.trim()
+  const subj=document.getElementById('ctSubject').value.trim()
+  const msg=document.getElementById('ctMsg').value.trim()
+  if(!name||!email||!subj||!msg)return showMsg('ctFormMsg','Please fill all fields')
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return showMsg('ctFormMsg','Invalid email')
+  try{
+    showMsg('ctFormMsg','Sending...','ok')
+    await addDoc(collection(db,'messages'),{name,email,subject:subj,message:msg,date:new Date().toLocaleDateString(),createdAt:serverTimestamp()})
+    ;['ctName','ctEmail','ctSubject','ctMsg'].forEach(id=>document.getElementById(id).value='')
+    showMsg('ctFormMsg','Message sent! ✓','ok')
+    setTimeout(()=>document.getElementById('ctFormMsg').style.display='none',4000)
+    toast('Message sent! ✉ 📧')
+  }catch(e){showMsg('ctFormMsg','Error: '+e.message)}
+}
+
+// DASHBOARD LOAD
+window.loadDashboard=async function(){
+  if(!window.currentUser)return
+  const cu=window.currentUser
+  const dbAv=document.getElementById('dbAvatar')
+  if(cu.photo)dbAv.innerHTML=`<img src="${cu.photo}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`
+  else dbAv.innerHTML=`<span>${cu.name[0].toUpperCase()}</span>`
+  document.getElementById('dbName').textContent=cu.name
+  document.getElementById('dbEmail').textContent=cu.email
+  try{
+    const vs=await getDoc(doc(db,'stats','visitors'))
+    document.getElementById('dbVisCount').textContent=(vs.data()?.count||0).toLocaleString()
+    const rs=await getDocs(collection(db,'reviews'))
+    document.getElementById('dbRevCount').textContent=rs.size
+    const ms=await getDocs(collection(db,'messages'))
+    const myMsgs=[...ms.docs].filter(d=>d.data().email===cu.email)
+    document.getElementById('dbMsgCount').textContent=myMsgs.length
+    const myRevs=[...rs.docs].filter(d=>d.data().email===cu.email).map(d=>d.data())
+    document.getElementById('myReviews').innerHTML=myRevs.length
+      ?myRevs.map(r=>`<div class="db-rev-item"><span style="color:var(--gold)">${'★'.repeat(r.stars)}</span> &nbsp;${r.text}<span style="float:right;opacity:.4">${r.date}</span></div>`).join('')
+      :'<p style="color:var(--wh2);font-size:14px">No reviews yet.</p>'
+  }catch(e){console.log('Dashboard error:',e)}
+}
+
+// ADMIN
+window.showSection=function(page){
+  document.getElementById('mainSite').style.display='none'
+  document.getElementById('dashboard').style.display='none'
+  document.getElementById('adminPanel').style.display='none'
+  document.getElementById('navLinks').classList.remove('open')
+  if(page==='home'){document.getElementById('mainSite').style.display='block';window.scrollTo(0,0)}
+  else if(page==='dashboard'){document.getElementById('dashboard').style.display='block';window.loadDashboard&&window.loadDashboard();window.scrollTo(0,0)}
+  else if(page==='admin'){document.getElementById('adminPanel').style.display='block';loadAdmin();window.scrollTo(0,0)}
+}
+
+window.loadAdmin = async function loadAdmin(){
+  try{
+    const vs=await getDoc(doc(db,'stats','visitors'))
+    document.getElementById('aVisitors').textContent=(vs.data()?.count||0).toLocaleString()
+    const us=await getDocs(collection(db,'users'))
+    document.getElementById('aUsers').textContent=us.size
+    const users=[...us.docs].map(d=>d.data());window._adminUsers=users
+    document.getElementById('adminUsersTable').innerHTML=users.length
+      ?users.map(u=>`<tr><td>${u.name}</td><td>${u.email}</td><td>${u.joined||'—'}</td><td><span class="badge ${u.role==='admin'?'badge-gold':'badge-red'}">${u.role||'user'}</span></td><td>${u.role!=='admin'?`<button class="del-btn" onclick="delUser('${u.uid}')">Delete</button>`:'—'}</td></tr>`).join('')
+      :'<tr><td colspan="5" style="color:var(--wh2)">No users.</td></tr>'
+    const rs=await getDocs(query(collection(db,'reviews'),orderBy('createdAt','desc')))
+    document.getElementById('aReviews').textContent=rs.size
+    const revs=[...rs.docs].map(d=>{return{id:d.id,...d.data()}})
+    document.getElementById('adminRevsTable').innerHTML=revs.length
+      ?revs.map(r=>`<tr><td>${r.user}</td><td>${'★'.repeat(r.stars)}</td><td>${r.text?.slice(0,50)}…</td><td>${r.date}</td><td><button class="del-btn" onclick="delReview('${r.id}')">Delete</button></td></tr>`).join('')
+      :'<tr><td colspan="5" style="color:var(--wh2)">No reviews.</td></tr>'
+    const ms=await getDocs(query(collection(db,'messages'),orderBy('createdAt','desc')))
+    document.getElementById('aMessages').textContent=ms.size
+    const msgs=[...ms.docs].map(d=>d.data());window._adminMsgs=msgs
+    document.getElementById('adminMsgsTable').innerHTML=msgs.length
+      ?msgs.map(m=>`<tr><td>${m.name}</td><td>${m.email}</td><td>${m.subject}</td><td>${m.message?.slice(0,50)}</td><td>${m.date}</td></tr>`).join('')
+      :'<tr><td colspan="5" style="color:var(--wh2)">No messages.</td></tr>'
+  await loadInvestments(db)
+  }catch(e){console.log('Admin error:',e)}
+}
+
+
+// Load investments in admin
+async function loadInvestments(db) {
+  // SECURITY: Only admin can see all investments
+  if(!window.currentUser || window.currentUser.role !== 'admin') return
+  try {
+    const {collection,getDocs,query,orderBy,doc,updateDoc} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+    const snap = await getDocs(collection(db,'investments'))
+    const invs = snap.docs.map(d=>({id:d.id,...d.data()}))
+    window._adminInvs = invs
+    const total = invs.reduce((s,i)=>s+(i.amount||0),0)
+    document.getElementById('adminInvTable').innerHTML = invs.length
+      ? invs.map(inv=>`<tr>
+          <td>${inv.name||'—'}</td>
+          <td style="font-size:11px">${inv.email||'—'}</td>
+          <td style="font-size:11px">${inv.phone||'—'}</td>
+          <td style="color:var(--gold);font-weight:500">₹${(inv.amount||0).toLocaleString()}</td>
+          <td>${inv.plan||'—'}</td>
+          <td>${inv.date||'—'}</td>
+          <td><span class="inv-status ${inv.status||'pending'}">${inv.status==='approved'?'✅ Approved':inv.status==='rejected'?'❌ Rejected':'⏳ Pending'}</span></td>
+          <td style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="btn-gold btn-sm" style="padding:4px 8px;font-size:10px" onclick="updateInvStatus('${inv.id}','approved')">✅</button>
+            <button class="del-btn" onclick="updateInvStatus('${inv.id}','rejected')">❌</button>
+            <button class="del-btn" onclick="delInv('${inv.id}')">🗑</button>
+          </td>
+        </tr>`).join('')
+      : '<tr><td colspan="8" style="color:var(--wh2);text-align:center">No investment applications yet.</td></tr>'
+
+    // Add total row
+    if(invs.length) {
+      document.getElementById('adminInvTable').innerHTML += `<tr style="border-top:2px solid rgba(201,168,76,.3)"><td colspan="3" style="color:var(--gold);font-weight:500">TOTAL</td><td style="color:var(--gold);font-weight:500;font-size:16px">₹${total.toLocaleString()}</td><td colspan="4"></td></tr>`
+    }
+  } catch(e) { console.log('Load investments error:', e) }
+}
+
+window.delInv = async function(id) {
+  if(!confirm('Delete this investment application?')) return
+  const {getFirestore,doc,deleteDoc} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+  const {getApps} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js")
+  await deleteDoc(doc(getFirestore(getApps()[0]),'investments',id))
+  toast('Deleted!'); window.loadAdmin()
+}
+
+window.updateInvStatus = async function(id, status) {
+  try {
+    const {getFirestore,doc,updateDoc} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+    const {getApps} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js")
+    await updateDoc(doc(getFirestore(getApps()[0]),'investments',id),{status})
+    toast(status==='approved'?'✅ Investment Approved!':'❌ Investment Rejected'); window.loadAdmin()
+  } catch(e) { console.log(e) }
+}
+
+window.delUser=async function(uid){if(!confirm('Delete user?'))return;await deleteDoc(doc(db,'users',uid));toast('User deleted');window.loadAdmin()}
+window.delReview=async function(id){if(!confirm('Delete review?'))return;await deleteDoc(doc(db,'reviews',id));toast('Review deleted');window.loadAdmin();window.loadReviews()}
+
+// SETUP ADMIN (first time)
+;(async()=>{try{const snap=await getDoc(doc(db,'users','admin-shadab'));if(!snap.exists()){const c=await createUserWithEmailAndPassword(auth,'admin@shadabempire.com','Admin@2024');await setDoc(doc(db,'users',c.user.uid),{name:'Mohd Shadab',email:'admin@shadabempire.com',photo:'',role:'admin',joined:new Date().toLocaleDateString(),uid:c.user.uid})}}catch(e){}})(  )
+</script>
+
+<script>
+window.exportData = function(type) {
+  let data = [], filename = '', headers = []
+  if(type==='users') {
+    data = window._adminUsers || []
+    headers = ['Name','Email','Joined','Role']
+    filename = 'shadab-empire-users.csv'
+  } else if(type==='reviews') {
+    data = window._adminRevs || []
+    headers = ['User','Email','Stars','Review','Date']
+    filename = 'shadab-empire-reviews.csv'
+  } else if(type==='messages') {
+    data = window._adminMsgs || []
+    headers = ['Name','Email','Subject','Message','Date']
+    filename = 'shadab-empire-messages.csv'
+  }
+  if(type==='investments') {
+    data = window._adminInvs || []
+    headers = ['Name','Email','Phone','Amount','Plan','Status','Date','Message']
+    filename = 'shadab-empire-investments.csv'
+  }
+  if(!data.length) return toast('No data to export!')
+  let csv = headers.join(',') + '\n'
+  data.forEach(r => {
+    let row = []
+    if(type==='users') row = [r.name||'',r.email||'',r.joined||'',r.role||'user']
+    else if(type==='reviews') row = [r.user||'',r.email||'',r.stars||'',r.text?.replace(/,/g,' ')||'',r.date||'']
+    else if(type==='messages') row = [r.name||'',r.email||'',r.subject?.replace(/,/g,' ')||'',r.message?.replace(/,/g,' ')||'',r.date||'']
+    else if(type==='investments') row = [r.name||'',r.email||'',r.phone||'',r.amount||0,r.plan||'',r.status||'pending',r.date||'',r.message?.replace(/,/g,' ')||'']
+    csv += row.map(v=>`"${v}"`).join(',') + '\n'
+  })
+  const blob = new Blob([csv], {type:'text/csv'})
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url; a.download = filename; a.click()
+  URL.revokeObjectURL(url)
+  toast('Downloaded ' + filename + ' ✅')
+}
+</script>
+
+<script>
+// INVESTOR FUNCTIONS
+window.selectedInvAmt = '';
+
+function setInvAmt(val) {
+  document.querySelectorAll('.inv-amt-btn').forEach(b=>b.classList.remove('sel'))
+  if(val==='custom') {
+    document.getElementById('customAmtBtn').classList.add('sel')
+    document.getElementById('invAmount').value = ''
+    document.getElementById('invAmount').focus()
+  } else {
+    event.target.classList.add('sel')
+    document.getElementById('invAmount').value = val
+    window.selectedInvAmt = val
+  }
+}
+
+function selectPlan(plan, minAmt) {
+  document.getElementById('invest').scrollIntoView({behavior:'smooth'})
+  setTimeout(() => {
+    document.getElementById('invPlan').value = plan
+    setInvAmt(minAmt)
+    document.querySelectorAll('.inv-amt-btn').forEach(b=>b.classList.remove('sel'))
+    document.getElementById('invAmount').value = minAmt
+  }, 600)
+}
+
+window.submitInvestment = async function() {
+  // SECURITY: Must be logged in
+  if(!window.currentUser) {
+    showMsg('invMsg','Please login first to submit an investment application')
+    setTimeout(()=>openAuth(), 1500)
+    return
+  }
+  const name = document.getElementById('invName').value.trim()
+  const email = document.getElementById('invEmail').value.trim()
+  const phone = document.getElementById('invPhone').value.trim()
+  const amount = document.getElementById('invAmount').value.trim()
+  const plan = document.getElementById('invPlan').value
+  const message = document.getElementById('invMessage').value.trim()
+
+  if(!name) return showMsg('invMsg','Please enter your name')
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showMsg('invMsg','Please enter valid email')
+  if(!phone) return showMsg('invMsg','Please enter your phone number')
+  if(!amount || isNaN(amount) || Number(amount) < 10) return showMsg('invMsg','Minimum investment is ₹10')
+
+  showMsg('invMsg','Submitting application...','ok')
+
+  try {
+    // Save to Firebase
+    const {getFirestore,collection,addDoc,serverTimestamp} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+    const {getApps} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js")
+    const app = getApps()[0]
+    const db = getFirestore(app)
+
+    await addDoc(collection(db,'investments'), {
+      name, email, phone,
+      amount: Number(amount),
+      plan, message,
+      status: 'pending',
+      date: new Date().toLocaleDateString(),
+      createdAt: serverTimestamp(),
+      uid: window.currentUser?.uid || 'guest'
+    })
+
+    // Email notification to admin
+    await emailjs.send("service_pwgv866","template_k197ujg",{
+      from_name: name,
+      from_email: email,
+      subject: `💰 New Investment Application - ₹${Number(amount).toLocaleString()} (${plan})`,
+      message: `Investment Application Details:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nAmount: ₹${Number(amount).toLocaleString()}\nPlan: ${plan}\nMessage: ${message||'None'}\nStatus: Pending Review`
+    })
+
+    // Clear form
+    ;['invName','invEmail','invPhone','invAmount','invMessage'].forEach(id=>document.getElementById(id).value='')
+    showMsg('invMsg','✅ Application submitted! We will contact you within 48 hours.','ok')
+    toast('Investment application submitted! 👑💰')
+
+    // Load investor dashboard if logged in
+    if(window.currentUser) loadMyInvestments()
+
+  } catch(e) {
+    console.log('Investment error:', e)
+    showMsg('invMsg','Error submitting. Please try again.')
+  }
+}
+
+async function loadMyInvestments() {
+  // SECURITY: Must be logged in to see own investments
+  if(!window.currentUser) return
+  try {
+    const {getFirestore,collection,query,where,getDocs,orderBy} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+    const {getApps} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js")
+    const db = getFirestore(getApps()[0])
+    const q = query(collection(db,'investments'), where('uid','==',window.currentUser.uid))
+    const snap = await getDocs(q)
+    const investments = snap.docs.map(d=>({id:d.id,...d.data()}))
+
+    // Update dashboard
+    const el = document.getElementById('myInvestments')
+    if(!el) return
+    if(!investments.length) {
+      el.innerHTML = '<p style="color:var(--wh2);font-size:14px">No investments yet. <a href=\"#invest\" style=\"color:var(--gold)\">Invest Now →</a></p>'
+      return
+    }
+    const total = investments.reduce((s,i)=>s+(i.amount||0),0)
+    el.innerHTML = `
+      <div style="margin-bottom:16px;padding:16px;background:var(--bk4);border-radius:3px;border-left:3px solid var(--gold)">
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wh2)">Total Invested</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--gold)">₹${total.toLocaleString()}</div>
+      </div>
+      ${investments.map(inv=>`
+        <div class="inv-db-card">
+          <div class="inv-db-card-top">
+            <div>
+              <div style="font-size:16px;font-weight:500">${inv.plan} Plan</div>
+              <div style="font-size:12px;color:var(--wh2);margin-top:3px">${inv.date}</div>
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--gold)">₹${(inv.amount||0).toLocaleString()}</div>
+              <span class="inv-status ${inv.status||'pending'}">${inv.status==='approved'?'✅ Approved':inv.status==='rejected'?'❌ Rejected':'⏳ Pending'}</span>
+            </div>
+          </div>
+          ${inv.message?`<p style="font-size:13px;color:var(--wh2);margin-top:8px">${inv.message}</p>`:''}
+        </div>`).join('')}
+    `
+  } catch(e) { console.log('Load investments error:', e) }
+}
+
+// Update dashboard to show investments
+const _origLoadDash = window.loadDashboard
+window.loadDashboard = async function() {
+  if(_origLoadDash) await _origLoadDash()
+  if(window.currentUser) loadMyInvestments()
+}
+</script>
+
+
+<script>
+// ===== INVESTMENT DASHBOARD =====
+
+function toggleDashTheme() {
+  const inner = document.getElementById('invDashInner')
+  const section = document.getElementById('invDashboard')
+  const isLight = document.getElementById('dashThemeToggle').checked
+  if(isLight) {
+    section.style.background = '#F8F4EE'
+    inner.classList.add('inv-light')
+    document.querySelectorAll('#invDashboard .inv-kpi, #invDashboard .inv-ticker-wrap, #invDashboard .inv-progress-section, #invDashboard .inv-calc-box, #invDashboard .inv-hist-item').forEach(el => el.classList.add('inv-light'))
+    document.querySelectorAll('#invDashboard h2, #invDashboard h3, #invDashboard p').forEach(el => el.style.color = '#1a1a1a')
+  } else {
+    section.style.background = 'var(--bk)'
+    inner.classList.remove('inv-light')
+    document.querySelectorAll('#invDashboard .inv-kpi, #invDashboard .inv-ticker-wrap, #invDashboard .inv-progress-section, #invDashboard .inv-calc-box, #invDashboard .inv-hist-item').forEach(el => el.classList.remove('inv-light'))
+    document.querySelectorAll('#invDashboard h2, #invDashboard h3, #invDashboard p').forEach(el => el.style.color = '')
+  }
+}
+
+function updateCalc() {
+  const amt = Number(document.getElementById('calcAmt').value)
+  const years = Number(document.getElementById('calcYears').value)
+  const ret = Number(document.getElementById('calcReturn').value)
+  document.getElementById('calcAmtVal').textContent = '₹' + amt.toLocaleString('en-IN')
+  document.getElementById('calcYearsVal').textContent = years + ' Year' + (years>1?'s':'')
+  document.getElementById('calcReturnVal').textContent = ret + '%'
+  const finalVal = amt * Math.pow(1 + ret/100, years)
+  const profit = finalVal - amt
+  const returns = finalVal - amt
+  document.getElementById('calcProfit').textContent = '₹' + Math.round(profit).toLocaleString('en-IN')
+  document.getElementById('calcInvested').textContent = '₹' + amt.toLocaleString('en-IN')
+  document.getElementById('calcReturns').textContent = '₹' + Math.round(returns).toLocaleString('en-IN')
+  document.getElementById('calcFinal').textContent = '₹' + Math.round(finalVal).toLocaleString('en-IN')
+}
+updateCalc()
+
+async function loadInvDashboard() {
+  try {
+    const {getFirestore, collection, getDocs, query, orderBy, where} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+    const {getApps} = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js")
+    const db = getFirestore(getApps()[0])
+
+    // Get APPROVED investments only for public display
+    const snap = await getDocs(collection(db,'investments'))
+    const allInvs = snap.docs.map(d => ({id:d.id, ...d.data()}))
+    const approved = allInvs.filter(i => i.status === 'approved')
+
+    // KPI Cards
+    const total = approved.reduce((s,i) => s+(i.amount||0), 0)
+    const avg = approved.length ? Math.round(total/approved.length) : 0
+    const top = approved.length ? Math.max(...approved.map(i=>i.amount||0)) : 0
+
+    document.getElementById('kpiTotal').textContent = '₹' + total.toLocaleString('en-IN')
+    document.getElementById('kpiInvestors').textContent = approved.length
+    document.getElementById('kpiAvg').textContent = '₹' + avg.toLocaleString('en-IN')
+    document.getElementById('kpiTop').textContent = '₹' + top.toLocaleString('en-IN')
+
+    // Progress bars
+    const thisMonth = approved.filter(i => {
+      const d = i.date || ''
+      const now = new Date()
+      return d.includes(now.getMonth()+1+'/') || d.includes('/'+(now.getMonth()+1)+'/')
+    }).reduce((s,i) => s+(i.amount||0), 0)
+
+    const monthGoal = 100000
+    const totalGoal = 1000000
+    const empireCount = approved.filter(i => i.plan === 'Empire').length
+
+    document.getElementById('progMonthVal').textContent = '₹' + thisMonth.toLocaleString('en-IN') + ' / ₹1,00,000'
+    document.getElementById('progMonthBar').style.width = Math.min(100, (thisMonth/monthGoal)*100) + '%'
+    document.getElementById('progTotalVal').textContent = '₹' + total.toLocaleString('en-IN') + ' / ₹10,00,000'
+    document.getElementById('progTotalBar').style.width = Math.min(100, (total/totalGoal)*100) + '%'
+    document.getElementById('progEmpireVal').textContent = empireCount + ' / 10'
+    document.getElementById('progEmpireBar').style.width = Math.min(100, (empireCount/10)*100) + '%'
+
+    // Live Ticker — show first name + amount only (privacy)
+    if(approved.length) {
+      const tickerItems = [...approved, ...approved].map(inv => {
+        const firstName = inv.name ? inv.name.split(' ')[0] + '***' : 'Investor***'
+        const planEmoji = inv.plan==='Empire'?'👑':inv.plan==='Growth'?'💎':'🌱'
+        return `<div class="ticker-item">
+          <div>
+            <div class="ticker-inv-name">${firstName}</div>
+            <div class="ticker-inv-plan">${planEmoji} ${inv.plan||'Starter'}</div>
+          </div>
+          <div class="ticker-inv-amt">₹${(inv.amount||0).toLocaleString('en-IN')}</div>
+        </div>`
+      }).join('')
+      document.getElementById('invTicker').innerHTML = tickerItems
+    } else {
+      document.getElementById('invTicker').innerHTML = '<div class="ticker-item"><div><div class="ticker-inv-name">Be the first investor! 👑</div><div class="ticker-inv-plan">Join Shadab Empire</div></div><div class="ticker-inv-amt">₹10+</div></div>'
+    }
+
+    // History Timeline
+    const histEl = document.getElementById('invHistList')
+    if(!approved.length) {
+      histEl.innerHTML = '<div style="text-align:center;padding:32px;color:var(--wh2);font-size:14px;border:1px dashed rgba(201,168,76,.15);border-radius:3px">No approved investments yet. Be the first! 👑</div>'
+      return
+    }
+    histEl.innerHTML = approved.map((inv, idx) => {
+      const firstName = inv.name ? inv.name.split(' ')[0] + ' ' + (inv.name.split(' ')[1]?inv.name.split(' ')[1][0]+'.':'') : 'Investor'
+      const planColor = inv.plan==='Empire'?'#C9A84C':inv.plan==='Growth'?'#7CB9E8':'#90EE90'
+      const planEmoji = inv.plan==='Empire'?'👑':inv.plan==='Growth'?'💎':'🌱'
+      return `<div class="inv-hist-item">
+        <div class="inv-hist-dot" style="background:linear-gradient(135deg,${planColor},${planColor}99)">${firstName[0]}</div>
+        <div class="inv-hist-info">
+          <div class="inv-hist-name">${firstName}</div>
+          <div class="inv-hist-date">📅 ${inv.date||'—'}</div>
+          <div class="inv-hist-plan" style="color:${planColor}">${planEmoji} ${inv.plan||'Starter'} Plan</div>
+        </div>
+        <div>
+          <div class="inv-hist-amt">₹${(inv.amount||0).toLocaleString('en-IN')}</div>
+          <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#4caf50;text-align:right;margin-top:4px">✅ Verified</div>
+        </div>
+      </div>`
+    }).join('')
+
+  } catch(e) {
+    console.log('Inv dashboard error:', e)
+    document.getElementById('invHistList').innerHTML = '<div style="text-align:center;padding:24px;color:var(--wh2)">Unable to load data</div>'
+  }
+}
+
+// Load on page load
+window.addEventListener('load', () => setTimeout(loadInvDashboard, 2000))
+
+// Add to nav
+</script>
+
+
+<script>
+window.currentInvType='rupee'
+function switchInvType(type){
+  window.currentInvType=type
+  document.getElementById('typeRupee').classList.toggle('active',type==='rupee')
+  document.getElementById('typeSip').classList.toggle('active',type==='sip')
+  document.getElementById('invAmtLabel').textContent=type==='sip'?'Monthly SIP Amount':'Investment Amount'
+  updateLivePanel()
+}
+function setLiveAmt(amt){
+  document.querySelectorAll('.inv-quick-btn').forEach(b=>b.classList.remove('active'))
+  if(amt===0){document.getElementById('customLiveBtn').classList.add('active');document.getElementById('liveInvAmt').focus();return}
+  event.target.classList.add('active')
+  document.getElementById('liveInvAmt').value=amt
+  updateLivePanel()
+}
+function updateLivePanel(){
+  const amt=Number(document.getElementById('liveInvAmt').value)||0
+  const isSip=window.currentInvType==='sip'
+  const btn=document.getElementById('liveProceedBtn')
+  if(btn)btn.disabled=amt<10
+  if(amt<10){
+    document.getElementById('invEquiv').textContent='Minimum investment: ₹10'
+    document.getElementById('ret1yr').textContent='₹0'
+    document.getElementById('ret3yr').textContent='₹0'
+    document.getElementById('ret5yr').textContent='₹0'
+    return
+  }
+  const plan=amt>=100000?'👑 Empire':amt>=10000?'💎 Growth':'🌱 Starter'
+  document.getElementById('invEquiv').textContent='Plan: '+plan+' · Revenue sharing @ 20% p.a.'
+  if(isSip){
+    document.getElementById('ret1yr').textContent='₹'+Math.round(amt*12*0.20).toLocaleString('en-IN')
+    document.getElementById('ret3yr').textContent='₹'+Math.round(amt*12*3*0.20).toLocaleString('en-IN')
+    document.getElementById('ret5yr').textContent='₹'+Math.round(amt*12*5*0.20).toLocaleString('en-IN')
+  } else {
+    document.getElementById('ret1yr').textContent='₹'+Math.round(amt*0.20).toLocaleString('en-IN')
+    document.getElementById('ret3yr').textContent='₹'+Math.round(amt*Math.pow(1.20,3)-amt).toLocaleString('en-IN')
+    document.getElementById('ret5yr').textContent='₹'+Math.round(amt*Math.pow(1.20,5)-amt).toLocaleString('en-IN')
+  }
+}
+window.submitLiveInvestment=async function(){
+  if(!window.currentUser){openAuth();return}
+  const amt=Number(document.getElementById('liveInvAmt').value)
+  const name=document.getElementById('liveName').value.trim()
+  const phone=document.getElementById('livePhone').value.trim()
+  if(!name)return showMsg('liveInvMsg','Please enter your name')
+  if(!phone)return showMsg('liveInvMsg','Please enter phone number')
+  if(amt<10)return showMsg('liveInvMsg','Minimum investment is ₹10')
+  const plan=amt>=100000?'Empire':amt>=10000?'Growth':'Starter'
+  const btn=document.getElementById('liveProceedBtn')
+  btn.disabled=true;btn.innerHTML='<span>Submitting...</span>'
+  showMsg('liveInvMsg','Processing...','ok')
+  try{
+    const {getFirestore,collection,addDoc,serverTimestamp}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js")
+    const {getApps}=await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js")
+    const db=getFirestore(getApps()[0])
+    await addDoc(collection(db,'investments'),{name,phone,email:window.currentUser.email,amount:amt,plan,type:window.currentInvType,status:'pending',date:new Date().toLocaleDateString('en-IN'),createdAt:serverTimestamp(),uid:window.currentUser.uid})
+    // Email to admin
+    await emailjs.send("service_pwgv866","template_k197ujg",{from_name:name,from_email:window.currentUser.email,subject:'💰 New Investment ₹'+amt.toLocaleString('en-IN')+' ('+plan+')',message:'Name: '+name+'\nEmail: '+window.currentUser.email+'\nPhone: '+phone+'\nAmount: ₹'+amt.toLocaleString('en-IN')+'\nPlan: '+plan+'\nType: '+(window.currentInvType==='sip'?'Monthly SIP':'One-time')})
+    // Email to investor
+    await emailjs.send("service_pwgv866","template_pfbp1s3",{
+      to_email: window.currentUser.email,
+      to_name: name,
+      amount: '₹'+amt.toLocaleString('en-IN'),
+      plan: plan+' Plan',
+      inv_type: window.currentInvType==='sip'?'Monthly SIP':'One-Time Investment',
+      date: new Date().toLocaleDateString('en-IN')
+    })
+    document.getElementById('liveInvAmt').value=''
+    document.getElementById('liveName').value=''
+    document.getElementById('livePhone').value=''
+    updateLivePanel()
+    showMsg('liveInvMsg','✅ Application submitted! We will contact you within 48 hours.','ok')
+    toast('Investment application submitted! 👑💰')
+    btn.innerHTML='<span>Proceed to Invest</span><span>→</span>'
+    btn.disabled=false
+    if(window.loadMyInvestments)loadMyInvestments()
+  }catch(e){
+    console.log(e)
+    showMsg('liveInvMsg','Error! Please try again.')
+    btn.innerHTML='<span>Proceed to Invest</span><span>→</span>'
+    btn.disabled=false
+  }
+}
+// Hook into auth state
+const _origURF=window.updateReviewForm
+window.updateReviewForm=function(){
+  if(_origURF)_origURF()
+  const f=document.getElementById('livePanelForm')
+  const l=document.getElementById('livePanelLogin')
+  if(!f||!l)return
+  if(window.currentUser){
+    f.style.display='block';l.style.display='none'
+    const nf=document.getElementById('liveName')
+    if(nf&&!nf.value)nf.value=window.currentUser.name||''
+  } else {
+    f.style.display='none';l.style.display='block'
+  }
+}
+function selectPlan(plan,minAmt){
+  document.getElementById('in
